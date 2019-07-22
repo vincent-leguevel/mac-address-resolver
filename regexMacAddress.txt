@@ -1,0 +1,16 @@
+Forme d'adresses mac reconnues par la regex :
+
+/(?:[a-fA-F0-9][a-fA-f0-9][:-\s]){1,5}[a-fA-F0-9][a-fA-f0-9]|(?:[a-fA-F0-9][a-fA-F0-9]){3}[:-\s]?(?:[a-fA-F0-9][a-fA-F0-9]){3}/gm
+
+af:01:bc:02:de:03
+AF:01:BC:02:DE:03
+af-01-bc-02-de-03
+AF-01-BC-02-DE-03
+af 01 bc 02 de 03
+AF 01 BC 02 DE 03
+AF01BC-02DE03
+af01bc-02de03
+AF01BC:02DE03
+af01bc:02de03
+AF01BC-02DE03
+af01bc02de03

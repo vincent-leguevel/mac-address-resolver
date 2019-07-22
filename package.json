@@ -1,0 +1,33 @@
+{
+  "name": "macinfo",
+  "version": "1.0.0",
+  "description": "Information mac",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "author": "Vincent Le Guével",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "delay": "^4.3.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "flash": "^1.1.0",
+    "node-ssh": "^6.0.0",
+    "oui": "^9.1.12",
+    "pug": "^2.0.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "ssh2": "^0.8.5",
+    "ssh2shell": "^1.9.1",
+    "sync-request": "^6.1.0",
+    "telnet-client": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

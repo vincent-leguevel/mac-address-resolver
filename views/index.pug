@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+  head
+    title Information mac-address
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel='stylesheet', href='/static/css/index.css')
+  body
+    .main
+        .container
+            .shadow.p-3.mb-5.bg-white.rounded
+                if flash != null
+                    .alert.alert-danger(role='info') #{flash}
+                form(action='/withApi', method='post')
+                    label(for='ipAddress') Option 1 => Renseigner l'adresse ip du switch HP Aruba.
+                    strong  Uniquement supporté depuis la parution des premières releases 16.xx.
+                    .input-group
+                      .input-group-prepend
+                        span#inputGroupPrepend2.input-group-text @IP
+                      input#ipAddress.form-control(name='ipAddress', type='text','plain',placeholder='10.2.151.10', aria-describedby='inputGroupPrepend2', required='')
+                      button.btn.btn-primary.btn-sm.pull-center(type='submit') Valider
+                    br
+                    .alert.alert-primary(role='info') Trier par :
+                      br
+                      .form-check.form-check-inline
+                        input#inlineRadio1.form-check-input(type='radio', name='sortedBy', value='vlan', checked)
+                        label.form-check-label(for='inlineRadio1') vlan
+                      .form-check.form-check-inline
+                        input#inlineRadio2.form-check-input(type='radio', name='sortedBy', value='port')
+                        label.form-check-label(for='inlineRadio2') port
+            form(action='/withoutApi', method='post')
+                .shadow.p-3.mb-5.bg-white.rounded
+                  label(for='ipAddress') Option 2 => Resultat de la commande "show mac-address"
+                  .input-group
+                    .input-group-prepend
+                      span.input-group-text show mac-address
+                    textarea.form-control(name='listMacAddress', aria-label='show mac-address', rows='20') #{list}
+                    button.btn.btn-primary.btn-lg.pull-center(type='submit') Valider
+                  br
+                  .alert.alert-primary(role='info') Trier par :
+                      br
+                      .form-check.form-check-inline
+                        input#inlineRadio1.form-check-input(type='radio', name='sortedBy', value='vlan', checked)
+                        label.form-check-label(for='inlineRadio1') vlan
+                      .form-check.form-check-inline
+                        input#inlineRadio2.form-check-input(type='radio', name='sortedBy', value='port')
+                        label.form-check-label(for='inlineRadio2') port
+
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+              script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+              script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
+
