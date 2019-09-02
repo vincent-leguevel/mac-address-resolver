@@ -14,14 +14,24 @@ const matcher = /(?:[a-fA-F0-9][a-fA-f0-9][:-\s]){1,5}[a-fA-F0-9][a-fA-f0-9]|(?:
 module.exports.findManufacturer = function (jsonPortDetail) {
 
 
-    let manufacturerInfo = oui(jsonPortDetail.macAddress).split('\n');
+    let manufacturerInfo = oui(jsonPortDetail.macAddress);
+    //Veirfication si l'adresse mac est répertoriée dans la base de données
+    if (manufacturerInfo != null ) {
+        manufacturerInfo = manufacturerInfo.split('\n');
 
-    jsonPortDetail.manufacturerInfo = {
-        manufacturer: manufacturerInfo[0],
-        street: manufacturerInfo[1],
-        city: manufacturerInfo[2],
-        country: manufacturerInfo[3]
-    };
+        jsonPortDetail.manufacturerInfo = {
+            manufacturer: manufacturerInfo[0],
+            street: manufacturerInfo[1],
+            city: manufacturerInfo[2],
+            country: manufacturerInfo[3]
+        };
+    } else {
+        jsonPortDetail.manufacturerInfo = {
+            manufacturer: "Pas de résolution"
+        };
+    }
+
+    
     return jsonPortDetail;
 
 };

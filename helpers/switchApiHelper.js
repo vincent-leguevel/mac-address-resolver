@@ -12,7 +12,7 @@ const SYSTEM_INFORMATION = 'system/status';
  * @param ipAddress
  * @returns {Promise<null>}
  */
-module.exports.getAllActivePortsInfo = async(ipAddress) => {
+module.exports.getAllActivePortsInfo = async (ipAddress) => {
 
     let activePortsInfo = {};
 
@@ -43,7 +43,7 @@ module.exports.getAllActivePortsInfo = async(ipAddress) => {
  * @param ipAddress
  * @returns {Promise<null>}
  */
-module.exports.getSystemInformation = async(ipAddress) => {
+module.exports.getSystemInformation = async (ipAddress) => {
 
     let info = {};
 
