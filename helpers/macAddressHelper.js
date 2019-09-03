@@ -27,7 +27,7 @@ module.exports.findManufacturer = function (jsonPortDetail) {
         };
     } else {
         jsonPortDetail.manufacturerInfo = {
-            manufacturer: "Pas de résolution"
+            noResolution : "Pas de résolution"
         };
     }
 
