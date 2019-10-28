@@ -23,6 +23,13 @@ html(lang='en')
                     br
                     br
                     | MAC : #{switchInfo.base_ethernet_address.octets}
+                    br
+                    br
+                    | Version du firmware : #{switchInfo .firmware_version}
+                  hr
+                  h4.alerte-heading Info vlans :
+                  p #{vlansInfo}
+
                   hr
                   p.mb-0
                       strong #{nbConnectedDevices.length}&nbsp;

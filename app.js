@@ -11,7 +11,7 @@ const switchApiHelper = require('./helpers/switchApiHelper');
 
 
 
-const listMacAddress = "Exemple de la commande à coller\n\n"+
+const listMacAddressExemple = "Exemple de la commande à coller\n\n"+
     "MAC Address   Port  VLAN\n" +
     "  ------------- ----- ----\n" +
     "  00000c-07ac01 1     1\n" +
@@ -55,7 +55,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.get('/', (req, res) => {
 
-  res.render('index',{list : listMacAddress});
+  res.render('index',{list : listMacAddressExemple});
 });
 
 
@@ -105,7 +105,8 @@ app.post('/withApi', async (req, res) => {
       list: cleanedMacAddressList,
       nbConnectedDevices: nbConnectedDevices,
       sortedBy : req.body.sortedBy,
-      switchInfo : await switchApiHelper.getSystemInformation(ipAddress)
+      switchInfo : await switchApiHelper.getSystemInformation(ipAddress),
+      vlansInfo : await switchApiHelper.getVlansInformation(ipAddress)
     };
 
     res.render('result', locals);

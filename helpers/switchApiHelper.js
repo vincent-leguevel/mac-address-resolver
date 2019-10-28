@@ -6,6 +6,7 @@ const HTTP = 'http://';
 //Commandes
 const SHOW_MAC_ADDRESS = 'mac-table';
 const SYSTEM_INFORMATION = 'system/status';
+const SHOW_VLANS = 'vlans'
 
 /**
  * Retoune unz liste des ports actifs sur le switch
@@ -57,6 +58,26 @@ module.exports.getSystemInformation = async (ipAddress) => {
         console.log(info);
         return info;
     }catch (e) {
+        console.error(e);
+        return null;
+    }
+
+};
+
+module.exports.getVlansInformation = async (ipAddress) => {
+
+    let vlansInfo = {};
+
+    let urlOptions = {
+        url : HTTP + ipAddress + API_URL + SHOW_VLANS,
+        json: true
+    };
+
+    try {
+        vlansInfo = await request(urlOptions);
+        console.log(vlansInfo);
+        return vlansInfo;
+    } catch (e) {
         console.error(e);
         return null;
     }
